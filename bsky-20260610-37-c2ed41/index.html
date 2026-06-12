@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Intake &amp; booking assistant — built for your firm</title>
+<style>
+  :root { --ink:#1a1d23; --soft:#5c6470; --line:#e3e6ea; --accent:#2a5d8f; --bg:#f7f8f9; }
+  * { box-sizing:border-box; margin:0; }
+  body { font:16px/1.55 -apple-system, "Segoe UI", Roboto, sans-serif; color:var(--ink);
+         background:var(--bg); padding:32px 16px; }
+  main { max-width:560px; margin:0 auto; }
+  .card { background:#fff; border:1px solid var(--line); border-radius:12px;
+          padding:28px; margin-bottom:16px; }
+  h1 { font-size:1.45rem; line-height:1.25; margin-bottom:10px; }
+  .kicker { color:var(--accent); font-weight:600; font-size:.85rem;
+            text-transform:uppercase; letter-spacing:.06em; margin-bottom:8px; }
+  blockquote { border-left:3px solid var(--line); padding:6px 14px; color:var(--soft);
+               font-style:italic; margin:14px 0; }
+  .chat { border:1px solid var(--line); border-radius:10px; padding:14px; min-height:200px; }
+  .bubble { max-width:84%; padding:9px 13px; border-radius:14px; margin:8px 0;
+            font-size:.92rem; }
+  .bot { background:#eef3f8; margin-right:auto; }
+  .visitor { background:var(--accent); color:#fff; margin-left:auto; }
+  .done { text-align:center; color:var(--soft); font-size:.82rem; margin-top:8px; }
+  button.step { display:block; margin:14px auto 0; padding:10px 22px; border:0;
+                border-radius:8px; background:var(--accent); color:#fff;
+                font-size:.95rem; cursor:pointer; }
+  .impact { background:#eef3f8; border-radius:8px; padding:14px 16px; font-size:.95rem; }
+  .impact small { color:var(--soft); display:block; margin-top:4px; }
+  .cta { display:inline-block; background:var(--accent); color:#fff; padding:12px 20px;
+         border-radius:8px; text-decoration:none; font-weight:600; }
+  .cta-alt { font-weight:600; }
+  footer { color:var(--soft); font-size:.82rem; text-align:center; padding:10px 0 30px; }
+</style>
+</head>
+<body>
+<main>
+  <div class="card">
+    <div class="kicker">Built for hospcreative at your firm</div>
+    <h1>New inquiries arrive sorted, scheduled, and ready to work</h1>
+    <p>This stood out:</p>
+    <blockquote>&ldquo;spending 15+ hours a week on rescheduling meetings and copying client info into different systems&rdquo;</blockquote>
+    <p>Here&rsquo;s an intake assistant shaped around your firm — it asks the
+       questions you&rsquo;d ask, then books the slot. Step through it below.</p>
+  </div>
+
+  <div class="card">
+    <div class="chat" id="chat"></div>
+    <button class="step" id="step">See the next step</button>
+    <div class="done" id="done"></div>
+  </div>
+
+  <div class="card">
+    <div class="impact">Roughly 8-15 admin hours per month reclaimable, assuming typical single-location legal practice volume<small>Conservative estimate with stated
+    assumptions — bring your real numbers and we&rsquo;ll redo it together.</small></div>
+  </div>
+
+  <div class="card"><p class="cta-alt">Want this wired up for real? Reply to my message and I&rsquo;ll send you a working version &mdash; no call needed.</p></div>
+  <footer>Prototype built by Avi AI for hospcreative. Not affiliated with your firm
+  until you say so. This page is private — only you have the link.</footer>
+</main>
+<script>
+var steps = [
+  ["bot", "Welcome — what can we help with today?"],
+  ["visitor", "I need a quote for a job at my place"],
+  ["bot", "Happy to help. What’s the rough scope, and is there a deadline driving it?"],
+  ["visitor", "Mid-size job, hoping for this month"],
+  ["bot", "That’s doable. I have Tuesday 10 AM or Wednesday 2 PM for a walkthrough — which suits?"],
+  ["visitor", "Wednesday 2 PM"],
+  ["bot", "Done — Wednesday 2 PM walkthrough is booked. You’ll get a confirmation text and we’ll bring a written quote."]
+];
+var i = 0, chat = document.getElementById("chat"), btn = document.getElementById("step");
+btn.addEventListener("click", function () {
+  if (i < steps.length) {
+    var el = document.createElement("div");
+    el.className = "bubble " + steps[i][0];
+    el.textContent = steps[i][1];
+    chat.appendChild(el); i++;
+  }
+  if (i >= steps.length) {
+    btn.style.display = "none";
+    document.getElementById("done").textContent =
+      "Every answer lands in your job sheet — no retyping, no phone tag.";
+  }
+});
+</script>
+</body>
+</html>
