@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Missed-call rescue — built for Rising Earth Massage &amp; Wellness</title>
+<style>
+  :root { --ink:#1a1d23; --soft:#5c6470; --line:#e3e6ea; --accent:#1f6f54; --bg:#f7f8f9; }
+  * { box-sizing:border-box; margin:0; }
+  body { font:16px/1.55 -apple-system, "Segoe UI", Roboto, sans-serif; color:var(--ink);
+         background:var(--bg); padding:32px 16px; }
+  main { max-width:560px; margin:0 auto; }
+  .card { background:#fff; border:1px solid var(--line); border-radius:12px;
+          padding:28px; margin-bottom:16px; }
+  h1 { font-size:1.45rem; line-height:1.25; margin-bottom:10px; }
+  .kicker { color:var(--accent); font-weight:600; font-size:.85rem;
+            text-transform:uppercase; letter-spacing:.06em; margin-bottom:8px; }
+  blockquote { border-left:3px solid var(--line); padding:6px 14px; color:var(--soft);
+               font-style:italic; margin:14px 0; }
+  .phone { background:#101418; border-radius:14px; padding:18px 14px; min-height:230px; }
+  .msg { max-width:82%; padding:9px 13px; border-radius:14px; margin:8px 0;
+         font-size:.92rem; opacity:0; transform:translateY(6px);
+         transition:all .45s ease; }
+  .msg.show { opacity:1; transform:none; }
+  .caller { background:#2a3139; color:#dde3ea; margin-right:auto; }
+  .ai { background:var(--accent); color:#fff; margin-left:auto; }
+  .meta { color:#7d8794; font-size:.78rem; text-align:center; margin:6px 0; }
+  button.play { display:block; margin:14px auto 0; padding:10px 22px; border:0;
+                border-radius:8px; background:var(--accent); color:#fff;
+                font-size:.95rem; cursor:pointer; }
+  .impact { background:#f0f5f3; border-radius:8px; padding:14px 16px; font-size:.95rem; }
+  .impact small { color:var(--soft); display:block; margin-top:4px; }
+  .cta { display:inline-block; background:var(--accent); color:#fff; padding:12px 20px;
+         border-radius:8px; text-decoration:none; font-weight:600; }
+  .cta-alt { font-weight:600; }
+  footer { color:var(--soft); font-size:.82rem; text-align:center; padding:10px 0 30px; }
+</style>
+</head>
+<body>
+<main>
+  <div class="card">
+    <div class="kicker">Built for Ty-Quasia Earth-Reid at Rising Earth Massage &amp; Wellness</div>
+    <h1>Every call you can&rsquo;t pick up, answered in seconds</h1>
+    <p>You said it yourself:</p>
+    <blockquote>&ldquo;I use an online booking system that requires a credit card. By booking you agree to cancellation policy. If you cancel less than 24 hours I charge 50%. Since doing things this way I almost never have no shows.&rdquo;</blockquote>
+    <p>So I sketched what a missed-call rescue looks like for Rising Earth Massage &amp; Wellness.
+       Press play — this is the actual flow, not a storyboard.</p>
+  </div>
+
+  <div class="card">
+    <div class="phone" id="phone">
+      <div class="meta">Tuesday, 2:47 PM — you&rsquo;re on a job, phone rings out</div>
+    </div>
+    <button class="play" id="play">&#9654; Play the rescue</button>
+  </div>
+
+  <div class="card">
+    <div class="impact">Roughly 5-15 no-shows prevented per month, assuming a solo practitioner with moderate appointment volume (~80/month).<small>Conservative estimate — happy to
+    walk through the math with your real call volume.</small></div>
+  </div>
+
+  <div class="card"><p class="cta-alt">Want this wired up for real? Reply to my message and I&rsquo;ll send you a working version &mdash; no call needed.</p></div>
+  <footer>Prototype built by Avi AI for Ty-Quasia Earth-Reid. Not affiliated with Rising Earth Massage &amp; Wellness
+  until you say so. This page is private — only you have the link.</footer>
+</main>
+<script>
+var steps = [
+  ["meta", "Missed call from (415) 555-0182"],
+  ["ai", "Hi, you’ve reached the office assistant — sorry we missed you. Are you calling about a quote, a booking, or something else?"],
+  ["caller", "Need someone to look at a job this week if possible"],
+  ["ai", "We can do that. What’s the address, and does Thursday 9–11 AM or Friday 1–3 PM work better?"],
+  ["caller", "Friday afternoon works"],
+  ["ai", "Booked: Friday 1–3 PM. You’ll get a text confirmation now and a reminder Friday morning. Anything else?"],
+  ["meta", "Lead captured + booked while you stayed on the job"]
+];
+document.getElementById("play").addEventListener("click", function () {
+  this.style.display = "none";
+  var phone = document.getElementById("phone"), i = 0;
+  (function next() {
+    if (i >= steps.length) return;
+    var el = document.createElement("div");
+    el.className = steps[i][0] === "meta" ? "meta" : "msg " + steps[i][0];
+    el.textContent = steps[i][1];
+    phone.appendChild(el);
+    requestAnimationFrame(function(){ requestAnimationFrame(function(){ el.classList.add("show"); }); });
+    i++; setTimeout(next, 1100);
+  })();
+});
+</script>
+</body>
+</html>
