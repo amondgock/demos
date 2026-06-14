@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>24/7 Quote Intake Assistant — built for Miller's Insurance Agency</title>
+<style>
+  :root { --ink:#16202b; --soft:#5c6873; --line:#e2e7ec; --accent:#1b4f8a;
+          --accent2:#2a7d5f; --bg:#f6f8fa; }
+  * { box-sizing:border-box; margin:0; }
+  body { font:16px/1.55 -apple-system,"Segoe UI",Roboto,sans-serif; color:var(--ink);
+         background:var(--bg); padding:30px 16px; }
+  main { max-width:600px; margin:0 auto; }
+  .card { background:#fff; border:1px solid var(--line); border-radius:14px;
+          padding:26px; margin-bottom:16px; }
+  .kicker { color:var(--accent); font-weight:700; font-size:.8rem;
+            text-transform:uppercase; letter-spacing:.07em; margin-bottom:8px; }
+  h1 { font-size:1.5rem; line-height:1.22; margin-bottom:10px; }
+  p.sub { color:var(--soft); }
+  blockquote { border-left:3px solid var(--line); padding:6px 14px; color:var(--soft);
+               font-style:italic; margin:14px 0; }
+  .pills { display:flex; gap:8px; flex-wrap:wrap; margin:14px 0 4px; }
+  .pill { border:1px solid var(--accent); color:var(--accent); background:#fff;
+          border-radius:20px; padding:8px 16px; font-size:.92rem; cursor:pointer;
+          transition:all .15s; }
+  .pill:hover { background:var(--accent); color:#fff; }
+  .chat { border:1px solid var(--line); border-radius:10px; padding:14px;
+          min-height:120px; margin-top:6px; background:#fbfcfd; }
+  .bubble { max-width:86%; padding:9px 13px; border-radius:14px; margin:8px 0;
+            font-size:.93rem; opacity:0; transform:translateY(6px);
+            animation:in .4s forwards; }
+  @keyframes in { to { opacity:1; transform:none; } }
+  .bot { background:#eef3f8; margin-right:auto; }
+  .you { background:var(--accent); color:#fff; margin-left:auto; }
+  .clock { display:inline-block; background:#eaf5ef; color:var(--accent2);
+           border-radius:6px; padding:2px 8px; font-size:.78rem; font-weight:600; }
+  .impact { background:#eef3f8; border-radius:8px; padding:14px 16px; font-size:.95rem; }
+  .impact small { color:var(--soft); display:block; margin-top:4px; }
+  .cta-alt { font-weight:600; }
+  footer { color:var(--soft); font-size:.82rem; text-align:center; padding:8px 4px 28px; }
+  a { color:var(--accent); }
+</style>
+</head>
+<body>
+<main>
+  <div class="card">
+    <div class="kicker">Prototype built for Fran &amp; the team at Miller's Insurance Agency</div>
+    <h1>Every quote request captured &amp; pre-qualified — 24/7, not just 8–6</h1>
+    <p class="sub">Your site takes quotes through a contact form and the phone
+    during business hours. Here's a small assistant that greets the visitor,
+    asks the right questions per coverage line, and hands your team a
+    ready-to-work lead — even at 11pm on a Sunday. Try it:</p>
+    <div class="pills" id="pills">
+      <span class="pill" data-line="Auto">Auto</span>
+      <span class="pill" data-line="Homeowners">Homeowners</span>
+      <span class="pill" data-line="Business">Business</span>
+      <span class="pill" data-line="Life">Life</span>
+    </div>
+    <div class="chat" id="chat">
+      <div class="bubble bot">Hi! I can start your quote right now. Which type of
+      coverage are you looking for? <span class="clock">● after-hours, online</span></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="impact">Roughly <b>20–40% of quote requests arrive outside
+    your 8am–6pm window</b> — captured and pre-qualified instead of lost to
+    voicemail or a half-filled form.
+    <small>Conservative range; assumes typical multi-line agency web traffic.
+    Happy to redo it with your real numbers.</small></div>
+  </div>
+
+  <div class="card">
+    <p class="cta-alt">Want this wired into your real quote flow and carriers?
+    Just reply to my email and I'll build you a working version — no call needed.</p>
+  </div>
+
+  <footer>Prototype built by <b>Avi AI Solutions</b> for Fran Shaw at Miller's
+  Insurance Agency. A sample only — not connected to your systems or any real
+  customer data. This page is private; only you have the link.</footer>
+</main>
+<script>
+var flows = {
+  Auto: [["you","Auto insurance"],
+    ["bot","Got it. Is this for a personal vehicle or a small fleet?"],
+    ["you","Personal — 2 cars"],
+    ["bot","Thanks. Any drivers under 25, and roughly what ZIP? That lets us match the right carriers from your lineup."],
+    ["you","No, and 19380"],
+    ["bot","Perfect — I've logged a 2-vehicle personal auto quote for West Chester and flagged it for a licensed agent to finalize first thing. Want a callback time?"]],
+  Homeowners: [["you","Homeowners"],
+    ["bot","Happy to help. Is it a single-family home, and do you currently have a policy you're shopping?"],
+    ["you","Single-family, shopping to lower my rate"],
+    ["bot","Noted — rate-shop on a single-family home. I've captured it and tagged it 'competitive review' so your team can pull the best carrier option before they call."]],
+  Business: [["you","Business insurance"],
+    ["bot","Great — what kind of business, and which do you need: general liability, commercial property, or workers' comp?"],
+    ["you","A 12-person contractor, GL + workers' comp"],
+    ["bot","Logged: GL + workers' comp for a 12-person contractor. That's a multi-line commercial quote — I've routed it straight to your commercial team with the headcount noted."]],
+  Life: [["you","Life insurance"],
+    ["bot","Of course. Term or whole life, and is this for income protection or final expenses?"],
+    ["you","Term, income protection"],
+    ["bot","Captured a term-life income-protection request. I've gathered the basics so your agent can come prepared instead of starting from scratch."]]
+};
+var chat = document.getElementById("chat");
+function add(role, text){
+  var b = document.createElement("div");
+  b.className = "bubble " + role; b.textContent = text; chat.appendChild(b);
+  chat.scrollTop = chat.scrollHeight;
+}
+document.querySelectorAll(".pill").forEach(function(pill){
+  pill.addEventListener("click", function(){
+    document.getElementById("pills").style.display = "none";
+    var steps = flows[pill.dataset.line], i = 0;
+    (function next(){
+      if (i >= steps.length) return;
+      add(steps[i][0], steps[i][1]); i++;
+      setTimeout(next, 950);
+    })();
+  });
+});
+</script>
+</body>
+</html>
