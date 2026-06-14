@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>24/7 Quote-Intake Assistant ,  built for Miller's Insurance Agency</title>
+<title>24/7 Quote-Intake Assistant , built for Miller's Insurance Agency</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -76,11 +76,11 @@
 <main>
   <div class="card">
     <span class="kicker">Built for Fran &amp; the team · Miller's Insurance Agency</span>
-    <h1>Every quote request captured &amp; pre-qualified ,  24/7, not just 8 to 6</h1>
+    <h1>Every quote request captured &amp; pre-qualified , 24/7, not just 8 to 6</h1>
     <p class="sub">Your site takes quotes through a contact form and the phone
     during business hours. Here's a small assistant that greets the visitor,
     asks the right questions per coverage line, and hands your team a
-    ready-to-work lead ,  even at 11pm on a Sunday. Pick a line to try it:</p>
+    ready-to-work lead , even at 11pm on a Sunday. Pick a line to try it:</p>
     <div class="pills" id="pills">
       <span class="pill" data-line="Auto">Auto</span>
       <span class="pill" data-line="Homeowners">Homeowners</span>
@@ -88,7 +88,7 @@
       <span class="pill" data-line="Life">Life</span>
     </div>
     <div class="chat" id="chat">
-      <div class="bubble bot">Hi! I can start your quote right now ,  which type
+      <div class="bubble bot">Hi! I can start your quote right now , which type
       of coverage are you looking for? &nbsp;<span class="badge"><span class="dot"></span><span id="clock">after-hours · online</span></span></div>
     </div>
     <div class="lead" id="lead">
@@ -99,7 +99,7 @@
 
   <div class="card">
     <div class="impact">Roughly <b>20 to 40% of quote requests arrive outside your
-    8am to 6pm window</b> ,  captured and pre-qualified instead of lost to voicemail
+    8am to 6pm window</b> , captured and pre-qualified instead of lost to voicemail
     or a half-finished form.
     <small>Conservative range; assumes typical multi-line agency web traffic , 
     happy to redo it with your real numbers.</small></div>
@@ -107,39 +107,39 @@
 
   <div class="card" style="text-align:center">
     <p class="reply">Want this wired into your real quote flow and carriers?
-    Reply to my email and I'll build you a working version ,  no call needed.</p>
+    Reply to my email and I'll build you a working version , no call needed.</p>
     <a class="site-btn" href="https://aviaisolutions.com" target="_blank" rel="noopener">Visit aviaisolutions.com →</a>
   </div>
 
   <footer>Prototype built by <b>Avi AI Solutions</b> for Fran Shaw at Miller's
   Insurance Agency · <a href="https://aviaisolutions.com" style="color:var(--accent)">aviaisolutions.com</a><br>
-  A sample only ,  not connected to your systems or any real customer data.
+  A sample only , not connected to your systems or any real customer data.
   This page is private; only you have the link.</footer>
 </main>
 <script>
 var flows={
  Auto:{steps:[["you","Auto insurance"],
-   ["bot","Great ,  personal vehicle or a small fleet?"],
-   ["you","Personal ,  2 cars"],
+   ["bot","Great , personal vehicle or a small fleet?"],
+   ["you","Personal , 2 cars"],
    ["bot","Any drivers under 25, and your ZIP? That lets us match the right carriers from your lineup."],
    ["you","No, 19380"],
-   ["bot","Perfect ,  logged and flagged for a licensed agent to finalize first thing. Want a callback time?"]],
-   lead:[["Coverage","Personal Auto ,  2 vehicles"],["Key details","No drivers <25 · ZIP 19380 (West Chester)"],["Routed to","Personal lines agent"],["Status","Ready for licensed agent"]]},
+   ["bot","Perfect , logged and flagged for a licensed agent to finalize first thing. Want a callback time?"]],
+   lead:[["Coverage","Personal Auto , 2 vehicles"],["Key details","No drivers <25 · ZIP 19380 (West Chester)"],["Routed to","Personal lines agent"],["Status","Ready for licensed agent"]]},
  Homeowners:{steps:[["you","Homeowners"],
    ["bot","Single-family home? And are you shopping an existing policy?"],
    ["you","Single-family, shopping to lower my rate"],
-   ["bot","Noted ,  single-family, rate review. Tagged 'competitive review' so your team can pull the best carrier before they call."]],
-   lead:[["Coverage","Homeowners ,  single-family"],["Key details","Rate-shop · has current policy"],["Routed to","Personal lines ,  competitive review"],["Status","Ready for licensed agent"]]},
+   ["bot","Noted , single-family, rate review. Tagged 'competitive review' so your team can pull the best carrier before they call."]],
+   lead:[["Coverage","Homeowners , single-family"],["Key details","Rate-shop · has current policy"],["Routed to","Personal lines , competitive review"],["Status","Ready for licensed agent"]]},
  Business:{steps:[["you","Business insurance"],
    ["bot","What kind of business, and do you need general liability, commercial property, or workers' comp?"],
-   ["you","12-person contractor ,  GL + workers' comp"],
+   ["you","12-person contractor , GL + workers' comp"],
    ["bot","Logged a multi-line commercial quote and routed it straight to your commercial team with the headcount noted."]],
-   lead:[["Coverage","Commercial ,  GL + Workers' Comp"],["Key details","Contractor · 12 employees"],["Routed to","Commercial lines team"],["Status","Ready for licensed agent"]]},
+   lead:[["Coverage","Commercial , GL + Workers' Comp"],["Key details","Contractor · 12 employees"],["Routed to","Commercial lines team"],["Status","Ready for licensed agent"]]},
  Life:{steps:[["you","Life insurance"],
-   ["bot","Term or whole life ,  and is this for income protection or final expenses?"],
+   ["bot","Term or whole life , and is this for income protection or final expenses?"],
    ["you","Term, income protection"],
    ["bot","Captured a term-life income-protection request with the basics, so your agent can come prepared instead of starting cold."]],
-   lead:[["Coverage","Term Life ,  income protection"],["Key details","Term preference · protection goal noted"],["Routed to","Life & supplemental specialist"],["Status","Ready for licensed agent"]]}
+   lead:[["Coverage","Term Life , income protection"],["Key details","Term preference · protection goal noted"],["Routed to","Life & supplemental specialist"],["Status","Ready for licensed agent"]]}
 };
 var chat=document.getElementById("chat");
 function add(role,text){var b=document.createElement("div");b.className="bubble "+role;b.textContent=text;chat.appendChild(b);chat.scrollTop=chat.scrollHeight;}
