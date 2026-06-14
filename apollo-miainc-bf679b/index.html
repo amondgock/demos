@@ -4,53 +4,83 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>24/7 Quote Intake Assistant — built for Miller's Insurance Agency</title>
+<title>24/7 Quote-Intake Assistant — built for Miller's Insurance Agency</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  :root { --ink:#16202b; --soft:#5c6873; --line:#e2e7ec; --accent:#1b4f8a;
-          --accent2:#2a7d5f; --bg:#f6f8fa; }
-  * { box-sizing:border-box; margin:0; }
-  body { font:16px/1.55 -apple-system,"Segoe UI",Roboto,sans-serif; color:var(--ink);
-         background:var(--bg); padding:30px 16px; }
-  main { max-width:600px; margin:0 auto; }
-  .card { background:#fff; border:1px solid var(--line); border-radius:14px;
-          padding:26px; margin-bottom:16px; }
-  .kicker { color:var(--accent); font-weight:700; font-size:.8rem;
-            text-transform:uppercase; letter-spacing:.07em; margin-bottom:8px; }
-  h1 { font-size:1.5rem; line-height:1.22; margin-bottom:10px; }
-  p.sub { color:var(--soft); }
-  blockquote { border-left:3px solid var(--line); padding:6px 14px; color:var(--soft);
-               font-style:italic; margin:14px 0; }
-  .pills { display:flex; gap:8px; flex-wrap:wrap; margin:14px 0 4px; }
-  .pill { border:1px solid var(--accent); color:var(--accent); background:#fff;
-          border-radius:20px; padding:8px 16px; font-size:.92rem; cursor:pointer;
-          transition:all .15s; }
-  .pill:hover { background:var(--accent); color:#fff; }
-  .chat { border:1px solid var(--line); border-radius:10px; padding:14px;
-          min-height:120px; margin-top:6px; background:#fbfcfd; }
-  .bubble { max-width:86%; padding:9px 13px; border-radius:14px; margin:8px 0;
-            font-size:.93rem; opacity:0; transform:translateY(6px);
-            animation:in .4s forwards; }
-  @keyframes in { to { opacity:1; transform:none; } }
-  .bot { background:#eef3f8; margin-right:auto; }
-  .you { background:var(--accent); color:#fff; margin-left:auto; }
-  .clock { display:inline-block; background:#eaf5ef; color:var(--accent2);
-           border-radius:6px; padding:2px 8px; font-size:.78rem; font-weight:600; }
-  .impact { background:#eef3f8; border-radius:8px; padding:14px 16px; font-size:.95rem; }
-  .impact small { color:var(--soft); display:block; margin-top:4px; }
-  .cta-alt { font-weight:600; }
-  footer { color:var(--soft); font-size:.82rem; text-align:center; padding:8px 4px 28px; }
-  a { color:var(--accent); }
+  :root{
+    --bg:#FAF9F6; --surface:#FFFFFF; --surface-2:#F5F1EB; --surface-3:#EFE8DD;
+    --accent:#CC785C; --accent-deep:#B8694E; --accent-wash:rgba(204,120,92,0.09);
+    --accent-soft:rgba(204,120,92,0.16);
+    --text:#1A1A1A; --text-soft:#756D62; --text-muted:#6B6357;
+    --border:rgba(0,0,0,0.08); --border-strong:rgba(0,0,0,0.14);
+    --success:#4F8A5B; --success-bg:rgba(79,138,91,0.12);
+    --panel-shadow:0 1px 2px rgba(0,0,0,0.04), 0 8px 28px rgba(0,0,0,0.05);
+    --serif:'Fraunces','Tiempos Headline',Georgia,serif;
+    --sans:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  }
+  *{box-sizing:border-box;margin:0}
+  body{font-family:var(--sans);background:var(--bg);color:var(--text);
+       padding:34px 16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+  main{max-width:600px;margin:0 auto}
+  .card{background:var(--surface);border:1px solid var(--border);
+        border-radius:18px;padding:26px 26px;margin-bottom:16px;
+        box-shadow:var(--panel-shadow)}
+  .kicker{display:inline-block;font-size:12px;font-weight:700;
+          letter-spacing:.08em;text-transform:uppercase;color:var(--accent);
+          background:var(--accent-wash);padding:5px 11px;border-radius:100px;
+          margin-bottom:14px}
+  h1{font-family:var(--serif);font-weight:600;font-size:30px;line-height:1.18;
+     letter-spacing:-0.03em;margin-bottom:12px}
+  p.sub{color:var(--text-soft);font-size:15.5px}
+  .pills{display:flex;gap:9px;flex-wrap:wrap;margin:18px 0 4px}
+  .pill{font-family:var(--sans);font-size:13.5px;font-weight:600;
+        border:1px solid var(--accent);color:var(--accent);background:var(--surface);
+        border-radius:100px;padding:9px 18px;cursor:pointer;transition:all .15s}
+  .pill:hover{background:var(--accent);color:#fff}
+  .chat{border:1px solid var(--border);border-radius:14px;padding:15px;
+        margin-top:8px;background:var(--surface-2);min-height:96px}
+  .bubble{max-width:86%;padding:10px 14px;border-radius:14px;margin:8px 0;
+          font-size:14px;opacity:0;transform:translateY(6px);animation:in .4s forwards}
+  @keyframes in{to{opacity:1;transform:none}}
+  .bot{background:var(--surface);border:1px solid var(--border);margin-right:auto}
+  .you{background:linear-gradient(90deg,var(--accent),var(--accent-deep));
+       color:#fff;margin-left:auto}
+  .badge{display:inline-flex;align-items:center;gap:6px;font-size:11.5px;
+         font-weight:600;color:var(--success);background:var(--success-bg);
+         border-radius:100px;padding:3px 10px}
+  .dot{width:7px;height:7px;border-radius:50%;background:var(--success);
+       display:inline-block;animation:pulse 1.6s infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+  .lead{border:1px dashed var(--accent);border-radius:14px;padding:16px 18px;
+        margin-top:14px;background:var(--accent-wash);display:none}
+  .lead h3{font-family:var(--serif);font-size:17px;font-weight:600;margin-bottom:10px}
+  .row{display:flex;justify-content:space-between;gap:12px;font-size:13.5px;
+       padding:6px 0;border-bottom:1px solid var(--border)}
+  .row:last-child{border-bottom:0}
+  .row span:first-child{color:var(--text-muted)}
+  .row span:last-child{font-weight:600;text-align:right}
+  .impact{background:var(--surface-2);border-radius:14px;padding:16px 18px;font-size:14.5px}
+  .impact small{color:var(--text-soft);display:block;margin-top:5px}
+  .site-btn{display:inline-block;font-weight:600;font-size:15px;color:#fff;
+            text-decoration:none;background:linear-gradient(90deg,var(--accent),var(--accent-deep));
+            padding:13px 24px;border-radius:100px;box-shadow:var(--accent-soft) 0 6px 22px}
+  .reply{font-weight:600;margin-bottom:14px}
+  footer{color:var(--text-muted);font-size:12.5px;text-align:center;
+         padding:14px 6px 30px}
+  footer b{color:var(--text-soft)}
 </style>
 </head>
 <body>
 <main>
   <div class="card">
-    <div class="kicker">Prototype built for Fran &amp; the team at Miller's Insurance Agency</div>
+    <span class="kicker">Built for Fran &amp; the team · Miller's Insurance Agency</span>
     <h1>Every quote request captured &amp; pre-qualified — 24/7, not just 8–6</h1>
     <p class="sub">Your site takes quotes through a contact form and the phone
     during business hours. Here's a small assistant that greets the visitor,
     asks the right questions per coverage line, and hands your team a
-    ready-to-work lead — even at 11pm on a Sunday. Try it:</p>
+    ready-to-work lead — even at 11pm on a Sunday. Pick a line to try it:</p>
     <div class="pills" id="pills">
       <span class="pill" data-line="Auto">Auto</span>
       <span class="pill" data-line="Homeowners">Homeowners</span>
@@ -58,63 +88,78 @@
       <span class="pill" data-line="Life">Life</span>
     </div>
     <div class="chat" id="chat">
-      <div class="bubble bot">Hi! I can start your quote right now. Which type of
-      coverage are you looking for? <span class="clock">● after-hours, online</span></div>
+      <div class="bubble bot">Hi! I can start your quote right now — which type
+      of coverage are you looking for? &nbsp;<span class="badge"><span class="dot"></span><span id="clock">after-hours · online</span></span></div>
+    </div>
+    <div class="lead" id="lead">
+      <h3>✓ Lead captured &amp; routed to your team</h3>
+      <div id="leadrows"></div>
     </div>
   </div>
 
   <div class="card">
-    <div class="impact">Roughly <b>20–40% of quote requests arrive outside
-    your 8am–6pm window</b> — captured and pre-qualified instead of lost to
-    voicemail or a half-filled form.
-    <small>Conservative range; assumes typical multi-line agency web traffic.
-    Happy to redo it with your real numbers.</small></div>
+    <div class="impact">Roughly <b>20–40% of quote requests arrive outside your
+    8am–6pm window</b> — captured and pre-qualified instead of lost to voicemail
+    or a half-finished form.
+    <small>Conservative range; assumes typical multi-line agency web traffic —
+    happy to redo it with your real numbers.</small></div>
   </div>
 
-  <div class="card">
-    <p class="cta-alt">Want this wired into your real quote flow and carriers?
-    Just reply to my email and I'll build you a working version — no call needed.</p>
+  <div class="card" style="text-align:center">
+    <p class="reply">Want this wired into your real quote flow and carriers?
+    Reply to my email and I'll build you a working version — no call needed.</p>
+    <a class="site-btn" href="https://aviaisolutions.com" target="_blank" rel="noopener">Visit aviaisolutions.com →</a>
   </div>
 
   <footer>Prototype built by <b>Avi AI Solutions</b> for Fran Shaw at Miller's
-  Insurance Agency. A sample only — not connected to your systems or any real
-  customer data. This page is private; only you have the link.</footer>
+  Insurance Agency · <a href="https://aviaisolutions.com" style="color:var(--accent)">aviaisolutions.com</a><br>
+  A sample only — not connected to your systems or any real customer data.
+  This page is private; only you have the link.</footer>
 </main>
 <script>
-var flows = {
-  Auto: [["you","Auto insurance"],
-    ["bot","Got it. Is this for a personal vehicle or a small fleet?"],
-    ["you","Personal — 2 cars"],
-    ["bot","Thanks. Any drivers under 25, and roughly what ZIP? That lets us match the right carriers from your lineup."],
-    ["you","No, and 19380"],
-    ["bot","Perfect — I've logged a 2-vehicle personal auto quote for West Chester and flagged it for a licensed agent to finalize first thing. Want a callback time?"]],
-  Homeowners: [["you","Homeowners"],
-    ["bot","Happy to help. Is it a single-family home, and do you currently have a policy you're shopping?"],
-    ["you","Single-family, shopping to lower my rate"],
-    ["bot","Noted — rate-shop on a single-family home. I've captured it and tagged it 'competitive review' so your team can pull the best carrier option before they call."]],
-  Business: [["you","Business insurance"],
-    ["bot","Great — what kind of business, and which do you need: general liability, commercial property, or workers' comp?"],
-    ["you","A 12-person contractor, GL + workers' comp"],
-    ["bot","Logged: GL + workers' comp for a 12-person contractor. That's a multi-line commercial quote — I've routed it straight to your commercial team with the headcount noted."]],
-  Life: [["you","Life insurance"],
-    ["bot","Of course. Term or whole life, and is this for income protection or final expenses?"],
-    ["you","Term, income protection"],
-    ["bot","Captured a term-life income-protection request. I've gathered the basics so your agent can come prepared instead of starting from scratch."]]
+var flows={
+ Auto:{steps:[["you","Auto insurance"],
+   ["bot","Great — personal vehicle or a small fleet?"],
+   ["you","Personal — 2 cars"],
+   ["bot","Any drivers under 25, and your ZIP? That lets us match the right carriers from your lineup."],
+   ["you","No, 19380"],
+   ["bot","Perfect — logged and flagged for a licensed agent to finalize first thing. Want a callback time?"]],
+   lead:[["Coverage","Personal Auto — 2 vehicles"],["Key details","No drivers <25 · ZIP 19380 (West Chester)"],["Routed to","Personal lines agent"],["Status","Ready for licensed agent"]]},
+ Homeowners:{steps:[["you","Homeowners"],
+   ["bot","Single-family home? And are you shopping an existing policy?"],
+   ["you","Single-family, shopping to lower my rate"],
+   ["bot","Noted — single-family, rate review. Tagged 'competitive review' so your team can pull the best carrier before they call."]],
+   lead:[["Coverage","Homeowners — single-family"],["Key details","Rate-shop · has current policy"],["Routed to","Personal lines — competitive review"],["Status","Ready for licensed agent"]]},
+ Business:{steps:[["you","Business insurance"],
+   ["bot","What kind of business, and do you need general liability, commercial property, or workers' comp?"],
+   ["you","12-person contractor — GL + workers' comp"],
+   ["bot","Logged a multi-line commercial quote and routed it straight to your commercial team with the headcount noted."]],
+   lead:[["Coverage","Commercial — GL + Workers' Comp"],["Key details","Contractor · 12 employees"],["Routed to","Commercial lines team"],["Status","Ready for licensed agent"]]},
+ Life:{steps:[["you","Life insurance"],
+   ["bot","Term or whole life — and is this for income protection or final expenses?"],
+   ["you","Term, income protection"],
+   ["bot","Captured a term-life income-protection request with the basics, so your agent can come prepared instead of starting cold."]],
+   lead:[["Coverage","Term Life — income protection"],["Key details","Term preference · protection goal noted"],["Routed to","Life & supplemental specialist"],["Status","Ready for licensed agent"]]}
 };
-var chat = document.getElementById("chat");
-function add(role, text){
-  var b = document.createElement("div");
-  b.className = "bubble " + role; b.textContent = text; chat.appendChild(b);
-  chat.scrollTop = chat.scrollHeight;
+var chat=document.getElementById("chat");
+function add(role,text){var b=document.createElement("div");b.className="bubble "+role;b.textContent=text;chat.appendChild(b);chat.scrollTop=chat.scrollHeight;}
+function showLead(line){
+  var rows=flows[line].lead.slice();
+  var t=new Date().toLocaleString('en-US',{weekday:'short',hour:'numeric',minute:'2-digit'});
+  rows.push(["Captured", t+" · after-hours, automatically"]);
+  var html="";rows.forEach(function(r){
+    var v=r[0]==="Status"?'<span style="color:var(--success)">'+r[1]+'</span>':r[1];
+    html+='<div class="row"><span>'+r[0]+'</span><span>'+v+'</span></div>';});
+  document.getElementById("leadrows").innerHTML=html;
+  document.getElementById("lead").style.display="block";
 }
-document.querySelectorAll(".pill").forEach(function(pill){
-  pill.addEventListener("click", function(){
-    document.getElementById("pills").style.display = "none";
-    var steps = flows[pill.dataset.line], i = 0;
+document.querySelectorAll(".pill").forEach(function(p){
+  p.addEventListener("click",function(){
+    document.getElementById("pills").style.display="none";
+    var s=flows[p.dataset.line].steps,i=0;
     (function next(){
-      if (i >= steps.length) return;
-      add(steps[i][0], steps[i][1]); i++;
-      setTimeout(next, 950);
+      if(i>=s.length){showLead(p.dataset.line);return;}
+      add(s[i][0],s[i][1]);i++;setTimeout(next,900);
     })();
   });
 });
