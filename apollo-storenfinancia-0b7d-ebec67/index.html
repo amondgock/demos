@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>A 24/7 intake assistant for Storen Financial</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FAF9F6; --surface:#FFFFFF; --surface-2:#F5F1EB; --surface-3:#EFE8DD;
+    --accent:#CC785C; --accent-deep:#B8694E; --accent-wash:rgba(204,120,92,0.09);
+    --accent-soft:rgba(204,120,92,0.16);
+    --text:#1A1A1A; --text-soft:#756D62; --text-muted:#6B6357;
+    --border:rgba(0,0,0,0.08); --success:#4F8A5B; --success-bg:rgba(79,138,91,0.12);
+    --panel-shadow:0 1px 2px rgba(0,0,0,0.04), 0 8px 28px rgba(0,0,0,0.05);
+    --serif:'Fraunces','Tiempos Headline',Georgia,serif;
+    --sans:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  }
+  *{box-sizing:border-box;margin:0}
+  body{font-family:var(--sans);background:var(--bg);color:var(--text);
+       padding:34px 16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+  main{max-width:600px;margin:0 auto}
+  .card{background:var(--surface);border:1px solid var(--border);border-radius:18px;
+        padding:26px;margin-bottom:16px;box-shadow:var(--panel-shadow)}
+  .kicker{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.08em;
+          text-transform:uppercase;color:var(--accent);background:var(--accent-wash);
+          padding:5px 11px;border-radius:100px;margin-bottom:14px}
+  h1{font-family:var(--serif);font-weight:600;font-size:30px;line-height:1.18;
+     letter-spacing:-0.03em;margin-bottom:12px}
+  p.sub{color:var(--text-soft);font-size:15.5px}
+  .pills{display:flex;gap:9px;flex-wrap:wrap;margin:18px 0 4px}
+  .pill{font-family:var(--sans);font-size:13.5px;font-weight:600;border:1px solid var(--accent);
+        color:var(--accent);background:var(--surface);border-radius:100px;padding:9px 18px;
+        cursor:pointer;transition:all .15s}
+  .pill:hover{background:var(--accent);color:#fff}
+  .chat{border:1px solid var(--border);border-radius:14px;padding:15px;margin-top:8px;
+        background:var(--surface-2);min-height:96px}
+  .bubble{max-width:86%;padding:10px 14px;border-radius:14px;margin:8px 0;font-size:14px;
+          opacity:0;transform:translateY(6px);animation:in .4s forwards}
+  @keyframes in{to{opacity:1;transform:none}}
+  .bot{background:var(--surface);border:1px solid var(--border);margin-right:auto}
+  .you{background:linear-gradient(90deg,var(--accent),var(--accent-deep));color:#fff;margin-left:auto}
+  .badge{display:inline-flex;align-items:center;gap:6px;font-size:11.5px;font-weight:600;
+         color:var(--success);background:var(--success-bg);border-radius:100px;padding:3px 10px}
+  .dot{width:7px;height:7px;border-radius:50%;background:var(--success);display:inline-block;
+       animation:pulse 1.6s infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+  .lead{border:1px dashed var(--accent);border-radius:14px;padding:16px 18px;margin-top:14px;
+        background:var(--accent-wash);display:none}
+  .lead h3{font-family:var(--serif);font-size:17px;font-weight:600;margin-bottom:10px}
+  .row{display:flex;justify-content:space-between;gap:12px;font-size:13.5px;padding:6px 0;
+       border-bottom:1px solid var(--border)}
+  .row:last-child{border-bottom:0}
+  .row span:first-child{color:var(--text-muted)}
+  .row span:last-child{font-weight:600;text-align:right}
+  .impact{background:var(--surface-2);border-radius:14px;padding:16px 18px;font-size:14.5px}
+  .impact small{color:var(--text-soft);display:block;margin-top:5px}
+  .site-btn{display:inline-block;font-weight:600;font-size:15px;color:#fff;text-decoration:none;
+            background:linear-gradient(90deg,var(--accent),var(--accent-deep));padding:13px 24px;
+            border-radius:100px;box-shadow:var(--accent-soft) 0 6px 22px}
+  .reply{font-weight:600;margin-bottom:14px}
+  footer{color:var(--text-muted);font-size:12.5px;text-align:center;padding:14px 6px 30px}
+  footer b{color:var(--text-soft)}
+  footer a,.kicker a{color:var(--accent)}
+</style></head>
+<body><main>
+  <div class="card">
+    <span class="kicker">Built for Debbi and the team at Storen Financial</span>
+    <h1>Scoping new inquiries the moment they land after hours</h1>
+    <p class="sub">Today prospects reach Storen through your contact form, by email, or by calling 317.852.7000, and an inquiry that arrives at night waits for the office to open. Here is an assistant that greets visitors any time, finds out whether they need tax prep, bookkeeping, financial planning, or small business help, and leaves your team a ready-to-work lead. Pick an option below to try it.</p>
+    <div class="pills" id="pills"><span class="pill" data-k="Tax planning">Tax planning</span><span class="pill" data-k="Bookkeeping">Bookkeeping</span><span class="pill" data-k="Financial planning">Financial planning</span></div>
+    <div class="chat" id="chat">
+      <div class="bubble bot">Hi, welcome to Storen Financial. I can help get your question to the right team, even outside office hours. What can I help you with today? &nbsp;<span class="badge"><span class="dot"></span>after-hours, online</span></div>
+    </div>
+    <div class="lead" id="lead"><h3>Lead captured and routed to your team</h3><div id="leadrows"></div></div>
+  </div>
+  <div class="card"><div class="impact">With clients in 43 states, a firm your size can capture <b>4 to 6 extra qualified inquiries a month</b> that used to slip away overnight. <small>Conservative estimate; happy to redo it with your real numbers.</small></div></div>
+  <div class="card" style="text-align:center">
+    <p class="reply">Want this wired into your real contact form? Reply to my email and I will build you a working version, no call needed.</p>
+    <a class="site-btn" href="https://aviaisolutions.com" target="_blank" rel="noopener">Visit aviaisolutions.com</a>
+  </div>
+  <footer>Prototype built by <b>Avi AI Solutions</b> for Debbi at Storen Financial ·
+  <a href="https://aviaisolutions.com">aviaisolutions.com</a><br>
+  A sample only, not connected to your systems or any real customer data. This page is private; only you have the link.</footer>
+</main>
+<script>
+var flows={"Tax planning": {"flow": [["you", "I need tax planning and preparation for this year."], ["bot", "Happy to help. Is this for you as an individual, for a business, or both?"], ["you", "Individual, but I also have some self-employment income."], ["bot", "Got it. I have logged a tax planning and prep inquiry with self-employment income and routed it to your team. You are all set."]], "summary": [["Service", "Tax planning and prep"], ["Client type", "Individual with self-employment"], ["Status", "Ready for team"]]}, "Bookkeeping": {"flow": [["you", "My small business needs ongoing bookkeeping and accounting."], ["bot", "Glad to help. Roughly how many monthly transactions, and do you already use an accounting platform?"], ["you", "A few hundred a month, and we run QuickBooks Online."], ["bot", "Noted. I have captured a small business bookkeeping inquiry on QuickBooks Online and handed it to your team. Done."]], "summary": [["Service", "Bookkeeping and accounting"], ["Client type", "Small business"], ["Status", "Ready for team"]]}, "Financial planning": {"flow": [["you", "I am interested in financial planning and investment guidance."], ["bot", "Of course. Are you looking at retirement planning, general wealth management, or both?"], ["you", "Mostly retirement planning."], ["bot", "Perfect. I have logged a retirement-focused financial planning inquiry and routed it to your investment team. All set."]], "summary": [["Service", "Financial planning"], ["Focus", "Retirement planning"], ["Status", "Ready for team"]]}};
+var chat=document.getElementById("chat");
+function add(role,text){var b=document.createElement("div");b.className="bubble "+role;
+  b.textContent=text;chat.appendChild(b);chat.scrollTop=chat.scrollHeight;}
+function showLead(label){
+  var rows=flows[label].summary.slice();
+  var t=new Date().toLocaleString('en-US',{weekday:'short',hour:'numeric',minute:'2-digit'});
+  rows.push(["Captured", t+", after-hours, automatically"]);
+  var h="";rows.forEach(function(r){
+    var v=r[0]==="Status"?'<span style="color:var(--success)">'+r[1]+'</span>':r[1];
+    h+='<div class="row"><span>'+r[0]+'</span><span>'+v+'</span></div>';});
+  document.getElementById("leadrows").innerHTML=h;
+  document.getElementById("lead").style.display="block";}
+document.querySelectorAll(".pill").forEach(function(p){
+  p.addEventListener("click",function(){
+    document.getElementById("pills").style.display="none";
+    var s=flows[p.dataset.k].flow,i=0;
+    (function next(){if(i>=s.length){showLead(p.dataset.k);return;}
+      add(s[i][0],s[i][1]);i++;setTimeout(next,900);})();});});
+</script>
+</body></html>
