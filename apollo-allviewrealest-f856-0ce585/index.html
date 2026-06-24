@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>A 24/7 intake assistant for AllView Real Estate</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FAF9F6; --surface:#FFFFFF; --surface-2:#F5F1EB; --surface-3:#EFE8DD;
+    --accent:#CC785C; --accent-deep:#B8694E; --accent-wash:rgba(204,120,92,0.09);
+    --accent-soft:rgba(204,120,92,0.16);
+    --text:#1A1A1A; --text-soft:#756D62; --text-muted:#6B6357;
+    --border:rgba(0,0,0,0.08); --success:#4F8A5B; --success-bg:rgba(79,138,91,0.12);
+    --panel-shadow:0 1px 2px rgba(0,0,0,0.04), 0 8px 28px rgba(0,0,0,0.05);
+    --serif:'Fraunces','Tiempos Headline',Georgia,serif;
+    --sans:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  }
+  *{box-sizing:border-box;margin:0}
+  body{font-family:var(--sans);background:var(--bg);color:var(--text);
+       padding:34px 16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+  main{max-width:600px;margin:0 auto}
+  .card{background:var(--surface);border:1px solid var(--border);border-radius:18px;
+        padding:26px;margin-bottom:16px;box-shadow:var(--panel-shadow)}
+  .kicker{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.08em;
+          text-transform:uppercase;color:var(--accent);background:var(--accent-wash);
+          padding:5px 11px;border-radius:100px;margin-bottom:14px}
+  h1{font-family:var(--serif);font-weight:600;font-size:30px;line-height:1.18;
+     letter-spacing:-0.03em;margin-bottom:12px}
+  p.sub{color:var(--text-soft);font-size:15.5px}
+  .pills{display:flex;gap:9px;flex-wrap:wrap;margin:18px 0 4px}
+  .pill{font-family:var(--sans);font-size:13.5px;font-weight:600;border:1px solid var(--accent);
+        color:var(--accent);background:var(--surface);border-radius:100px;padding:9px 18px;
+        cursor:pointer;transition:all .15s}
+  .pill:hover{background:var(--accent);color:#fff}
+  .chat{border:1px solid var(--border);border-radius:14px;padding:15px;margin-top:8px;
+        background:var(--surface-2);min-height:96px}
+  .bubble{max-width:86%;padding:10px 14px;border-radius:14px;margin:8px 0;font-size:14px;
+          opacity:0;transform:translateY(6px);animation:in .4s forwards}
+  @keyframes in{to{opacity:1;transform:none}}
+  .bot{background:var(--surface);border:1px solid var(--border);margin-right:auto}
+  .you{background:linear-gradient(90deg,var(--accent),var(--accent-deep));color:#fff;margin-left:auto}
+  .badge{display:inline-flex;align-items:center;gap:6px;font-size:11.5px;font-weight:600;
+         color:var(--success);background:var(--success-bg);border-radius:100px;padding:3px 10px}
+  .dot{width:7px;height:7px;border-radius:50%;background:var(--success);display:inline-block;
+       animation:pulse 1.6s infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+  .lead{border:1px dashed var(--accent);border-radius:14px;padding:16px 18px;margin-top:14px;
+        background:var(--accent-wash);display:none}
+  .lead h3{font-family:var(--serif);font-size:17px;font-weight:600;margin-bottom:10px}
+  .row{display:flex;justify-content:space-between;gap:12px;font-size:13.5px;padding:6px 0;
+       border-bottom:1px solid var(--border)}
+  .row:last-child{border-bottom:0}
+  .row span:first-child{color:var(--text-muted)}
+  .row span:last-child{font-weight:600;text-align:right}
+  .impact{background:var(--surface-2);border-radius:14px;padding:16px 18px;font-size:14.5px}
+  .impact small{color:var(--text-soft);display:block;margin-top:5px}
+  .site-btn{display:inline-block;font-weight:600;font-size:15px;color:#fff;text-decoration:none;
+            background:linear-gradient(90deg,var(--accent),var(--accent-deep));padding:13px 24px;
+            border-radius:100px;box-shadow:var(--accent-soft) 0 6px 22px}
+  .reply{font-weight:600;margin-bottom:14px}
+  footer{color:var(--text-muted);font-size:12.5px;text-align:center;padding:14px 6px 30px}
+  footer b{color:var(--text-soft)}
+  footer a,.kicker a{color:var(--accent)}
+</style></head>
+<body><main>
+  <div class="card">
+    <span class="kicker">Built for Ryan and the team at AllView Real Estate</span>
+    <h1>Greeting leasing and owner inquiries across OC, SD, and LA after hours</h1>
+    <p class="sub">Your site spreads inquiries across three office lines, an emergency number, a contact form, and AppFolio owner and tenant portals, so an evening leasing or owner question can slip between offices. Here is an assistant that greets visitors after hours, asks the right questions, and leaves your team a ready-to-work lead. Pick an option below to see it run.</p>
+    <div class="pills" id="pills"><span class="pill" data-k="Renter inquiry">Renter inquiry</span><span class="pill" data-k="Resident maintenance">Resident maintenance</span><span class="pill" data-k="Owner inquiry">Owner inquiry</span></div>
+    <div class="chat" id="chat">
+      <div class="bubble bot">Hi, thanks for visiting AllView Real Estate. Are you looking to rent a home, asking as a current resident, or are you a property owner? &nbsp;<span class="badge"><span class="dot"></span>after-hours, online</span></div>
+    </div>
+    <div class="lead" id="lead"><h3>Lead captured and routed to your team</h3><div id="leadrows"></div></div>
+  </div>
+  <div class="card"><div class="impact">Across single-family, multifamily, commercial, and luxury in three counties, capturing even <b>30 percent</b> of after-hours inquiries means fewer leads lost between offices. <small>Conservative estimate; happy to redo it with your real numbers.</small></div></div>
+  <div class="card" style="text-align:center">
+    <p class="reply">Want this wired into your real leasing and owner intake? Reply to my email and I will build you a working version, no call needed.</p>
+    <a class="site-btn" href="https://aviaisolutions.com" target="_blank" rel="noopener">Visit aviaisolutions.com</a>
+  </div>
+  <footer>Prototype built by <b>Avi AI Solutions</b> for Ryan at AllView Real Estate ·
+  <a href="https://aviaisolutions.com">aviaisolutions.com</a><br>
+  A sample only, not connected to your systems or any real customer data. This page is private; only you have the link.</footer>
+</main>
+<script>
+var flows={"Renter inquiry": {"flow": [["you", "Do you have any single-family rentals in Orange County?"], ["bot", "I can help. What is your budget and ideal move-in date, and the best way to reach you?"], ["you", "Around 3500 a month, moving next month, riley@email.com"], ["bot", "Perfect. I have logged interest in an Orange County single-family rental near 3500 a month for a next-month move-in and routed it to the OC leasing team."]], "summary": [["Inquiry", "Single-family rental, Orange County"], ["Budget", "~3500/mo, next month"], ["Contact", "riley@email.com"], ["Status", "Ready for OC leasing team"]]}, "Resident maintenance": {"flow": [["you", "My garbage disposal stopped working and it is late"], ["bot", "Sorry about that. What is your property address or unit, and is this urgent or can it wait for business hours?"], ["you", "1420 Pine St, San Diego, it can wait until tomorrow"], ["bot", "Thank you. I have captured a garbage disposal repair at 1420 Pine St, San Diego marked non-urgent and routed it to the SD property team."]], "summary": [["Address", "1420 Pine St, San Diego"], ["Issue", "Garbage disposal, non-urgent"], ["Status", "Ready for SD property team"]]}, "Owner inquiry": {"flow": [["you", "I own a few rentals and want help managing them"], ["bot", "Glad to help. Are the properties single-family, multifamily, commercial, or luxury, and which county are they in?"], ["you", "Two single-family homes in LA County"], ["bot", "Thanks. I have logged an owner inquiry for two single-family homes in LA County and routed it to the management team to follow up."]], "summary": [["Owner inquiry", "Property management"], ["Properties", "Two single-family, LA County"], ["Status", "Ready for management team"]]}};
+var chat=document.getElementById("chat");
+function add(role,text){var b=document.createElement("div");b.className="bubble "+role;
+  b.textContent=text;chat.appendChild(b);chat.scrollTop=chat.scrollHeight;}
+function showLead(label){
+  var rows=flows[label].summary.slice();
+  var t=new Date().toLocaleString('en-US',{weekday:'short',hour:'numeric',minute:'2-digit'});
+  rows.push(["Captured", t+", after-hours, automatically"]);
+  var h="";rows.forEach(function(r){
+    var v=r[0]==="Status"?'<span style="color:var(--success)">'+r[1]+'</span>':r[1];
+    h+='<div class="row"><span>'+r[0]+'</span><span>'+v+'</span></div>';});
+  document.getElementById("leadrows").innerHTML=h;
+  document.getElementById("lead").style.display="block";}
+document.querySelectorAll(".pill").forEach(function(p){
+  p.addEventListener("click",function(){
+    document.getElementById("pills").style.display="none";
+    var s=flows[p.dataset.k].flow,i=0;
+    (function next(){if(i>=s.length){showLead(p.dataset.k);return;}
+      add(s[i][0],s[i][1]);i++;setTimeout(next,900);})();});});
+</script>
+</body></html>

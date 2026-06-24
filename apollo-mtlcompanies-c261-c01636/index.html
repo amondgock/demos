@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>A 24/7 intake assistant for MTL Companies</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FAF9F6; --surface:#FFFFFF; --surface-2:#F5F1EB; --surface-3:#EFE8DD;
+    --accent:#CC785C; --accent-deep:#B8694E; --accent-wash:rgba(204,120,92,0.09);
+    --accent-soft:rgba(204,120,92,0.16);
+    --text:#1A1A1A; --text-soft:#756D62; --text-muted:#6B6357;
+    --border:rgba(0,0,0,0.08); --success:#4F8A5B; --success-bg:rgba(79,138,91,0.12);
+    --panel-shadow:0 1px 2px rgba(0,0,0,0.04), 0 8px 28px rgba(0,0,0,0.05);
+    --serif:'Fraunces','Tiempos Headline',Georgia,serif;
+    --sans:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  }
+  *{box-sizing:border-box;margin:0}
+  body{font-family:var(--sans);background:var(--bg);color:var(--text);
+       padding:34px 16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+  main{max-width:600px;margin:0 auto}
+  .card{background:var(--surface);border:1px solid var(--border);border-radius:18px;
+        padding:26px;margin-bottom:16px;box-shadow:var(--panel-shadow)}
+  .kicker{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.08em;
+          text-transform:uppercase;color:var(--accent);background:var(--accent-wash);
+          padding:5px 11px;border-radius:100px;margin-bottom:14px}
+  h1{font-family:var(--serif);font-weight:600;font-size:30px;line-height:1.18;
+     letter-spacing:-0.03em;margin-bottom:12px}
+  p.sub{color:var(--text-soft);font-size:15.5px}
+  .pills{display:flex;gap:9px;flex-wrap:wrap;margin:18px 0 4px}
+  .pill{font-family:var(--sans);font-size:13.5px;font-weight:600;border:1px solid var(--accent);
+        color:var(--accent);background:var(--surface);border-radius:100px;padding:9px 18px;
+        cursor:pointer;transition:all .15s}
+  .pill:hover{background:var(--accent);color:#fff}
+  .chat{border:1px solid var(--border);border-radius:14px;padding:15px;margin-top:8px;
+        background:var(--surface-2);min-height:96px}
+  .bubble{max-width:86%;padding:10px 14px;border-radius:14px;margin:8px 0;font-size:14px;
+          opacity:0;transform:translateY(6px);animation:in .4s forwards}
+  @keyframes in{to{opacity:1;transform:none}}
+  .bot{background:var(--surface);border:1px solid var(--border);margin-right:auto}
+  .you{background:linear-gradient(90deg,var(--accent),var(--accent-deep));color:#fff;margin-left:auto}
+  .badge{display:inline-flex;align-items:center;gap:6px;font-size:11.5px;font-weight:600;
+         color:var(--success);background:var(--success-bg);border-radius:100px;padding:3px 10px}
+  .dot{width:7px;height:7px;border-radius:50%;background:var(--success);display:inline-block;
+       animation:pulse 1.6s infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+  .lead{border:1px dashed var(--accent);border-radius:14px;padding:16px 18px;margin-top:14px;
+        background:var(--accent-wash);display:none}
+  .lead h3{font-family:var(--serif);font-size:17px;font-weight:600;margin-bottom:10px}
+  .row{display:flex;justify-content:space-between;gap:12px;font-size:13.5px;padding:6px 0;
+       border-bottom:1px solid var(--border)}
+  .row:last-child{border-bottom:0}
+  .row span:first-child{color:var(--text-muted)}
+  .row span:last-child{font-weight:600;text-align:right}
+  .impact{background:var(--surface-2);border-radius:14px;padding:16px 18px;font-size:14.5px}
+  .impact small{color:var(--text-soft);display:block;margin-top:5px}
+  .site-btn{display:inline-block;font-weight:600;font-size:15px;color:#fff;text-decoration:none;
+            background:linear-gradient(90deg,var(--accent),var(--accent-deep));padding:13px 24px;
+            border-radius:100px;box-shadow:var(--accent-soft) 0 6px 22px}
+  .reply{font-weight:600;margin-bottom:14px}
+  footer{color:var(--text-muted);font-size:12.5px;text-align:center;padding:14px 6px 30px}
+  footer b{color:var(--text-soft)}
+  footer a,.kicker a{color:var(--accent)}
+</style></head>
+<body><main>
+  <div class="card">
+    <span class="kicker">Built for Rob and the team at MTL Companies</span>
+    <h1>Answer freight and warehousing questions outside the 6 to 5 window</h1>
+    <p class="sub">Today a shipper uses your online quote request or calls 763-533-4301 during your 6am to 5pm hours and waits otherwise. Here is an assistant that greets visitors after hours, asks the right lane or storage questions, and leaves your team a ready-to-work lead. Pick an option below to see it run.</p>
+    <div class="pills" id="pills"><span class="pill" data-k="LTL quote">LTL quote</span><span class="pill" data-k="Warehousing">Warehousing</span><span class="pill" data-k="Same-day local">Same-day local</span></div>
+    <div class="chat" id="chat">
+      <div class="bubble bot">Hi, thanks for visiting MTL Companies outside our 6 to 5 hours. I can take your shipment details now and route them to a rep for the morning. What are you shipping? &nbsp;<span class="badge"><span class="dot"></span>after-hours, online</span></div>
+    </div>
+    <div class="lead" id="lead"><h3>Lead captured and routed to your team</h3><div id="leadrows"></div></div>
+  </div>
+  <div class="card"><div class="impact">Since your office runs Monday to Friday, capturing <b>3 to 5 evening and weekend requests weekly</b> means MTL is reachable even when the dock is dark. <small>Conservative estimate; happy to redo it with your real numbers.</small></div></div>
+  <div class="card" style="text-align:center">
+    <p class="reply">Want this wired into your real quote form and customer portal? Reply to my email and I will build you a working version, no call needed.</p>
+    <a class="site-btn" href="https://aviaisolutions.com" target="_blank" rel="noopener">Visit aviaisolutions.com</a>
+  </div>
+  <footer>Prototype built by <b>Avi AI Solutions</b> for Rob at MTL Companies ·
+  <a href="https://aviaisolutions.com">aviaisolutions.com</a><br>
+  A sample only, not connected to your systems or any real customer data. This page is private; only you have the link.</footer>
+</main>
+<script>
+var flows={"LTL quote": {"flow": [["you", "Need an LTL quote, 4 pallets from the Twin Cities"], ["bot", "Got it. Where is it headed, what is the total weight, and any temperature needs?"], ["you", "Going to Chicago, about 3,000 lbs, food grade"], ["bot", "Captured. Lane, weight, and food grade need are saved and routed to your team to quote."]], "summary": [["Lane", "Twin Cities to Chicago"], ["Load", "4 pallets, 3,000 lbs, food grade"], ["Status", "Ready for team"]]}, "Warehousing": {"flow": [["you", "Do you have temperature controlled warehouse space?"], ["bot", "We have over 500,000 sq ft across six locations, food grade and temperature controlled. How much space and for how long?"], ["you", "Around 8,000 sq ft for six months, food and beverage"], ["bot", "Captured. Space, term, and product type are saved and routed to your warehousing team."]], "summary": [["Need", "About 8,000 sq ft, six months"], ["Type", "Food and beverage, temp controlled"], ["Status", "Ready for warehousing team"]]}, "Same-day local": {"flow": [["you", "Need a same-day local delivery in the Twin Cities"], ["bot", "We cover the 8-county Twin Cities area same day. What is the pickup, the drop, and the timing?"], ["you", "Pickup in Minneapolis, drop in St. Paul, this afternoon"], ["bot", "Captured. Pickup, drop, and timing are saved and routed to your dispatch team."]], "summary": [["Pickup", "Minneapolis"], ["Drop", "St. Paul, this afternoon"], ["Status", "Ready for dispatch team"]]}};
+var chat=document.getElementById("chat");
+function add(role,text){var b=document.createElement("div");b.className="bubble "+role;
+  b.textContent=text;chat.appendChild(b);chat.scrollTop=chat.scrollHeight;}
+function showLead(label){
+  var rows=flows[label].summary.slice();
+  var t=new Date().toLocaleString('en-US',{weekday:'short',hour:'numeric',minute:'2-digit'});
+  rows.push(["Captured", t+", after-hours, automatically"]);
+  var h="";rows.forEach(function(r){
+    var v=r[0]==="Status"?'<span style="color:var(--success)">'+r[1]+'</span>':r[1];
+    h+='<div class="row"><span>'+r[0]+'</span><span>'+v+'</span></div>';});
+  document.getElementById("leadrows").innerHTML=h;
+  document.getElementById("lead").style.display="block";}
+document.querySelectorAll(".pill").forEach(function(p){
+  p.addEventListener("click",function(){
+    document.getElementById("pills").style.display="none";
+    var s=flows[p.dataset.k].flow,i=0;
+    (function next(){if(i>=s.length){showLead(p.dataset.k);return;}
+      add(s[i][0],s[i][1]);i++;setTimeout(next,900);})();});});
+</script>
+</body></html>
